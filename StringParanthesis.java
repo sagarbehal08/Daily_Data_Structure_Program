@@ -2,54 +2,8 @@ package Assignment;
 
 import java.util.*;
 
-class parenthesis{
-    static class stack  
-    { 
-        int top=-1; 
-        char items[]=new char[100]; 
-
-       
-        void push(char x)  
-        { 
-            if(top==99)  
-            { 
-                System.out.println("Stack full"); 
-            }  
-            else 
-            { 
-                items[++top]=x; 
-            } 
-        }
-
-        
-        char pop()  
-        {
-            if(top==-1)  
-            { 
-                System.out.println("Underflow error"); 
-                return '\0'; 
-            }
-            else 
-            { 
-                char element=items[top]; 
-                top--; 
-                return element; 
-            }
-        }
-
-       
-        boolean isEmpty()  
-        { 
-            if(top==-1){
-                return true;
-            }
-            else
-                return false;
-        } 
-    }
-
-    
-    public static boolean isMatch(char ch1, char ch2){
+public class StringParanthesis{
+	public static boolean isMatch(char ch1, char ch2){
         if(ch1=='(' && ch2==')')
             return true;
         if(ch1=='{' && ch2=='}')
@@ -63,7 +17,7 @@ class parenthesis{
    
     public static boolean checkparen(String str){
         int n=str.length();
-        stack s=new stack();
+        Stack s=new Stack();
         for(int i=0;i<n;i++){
             char c=str.charAt(i);
             
@@ -93,19 +47,16 @@ class parenthesis{
     }
     public static void main (String[] args) {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Enter the number of queries:-");
-        int q=sc.nextInt();
-        int i=0;
-        while (i<q) {
+        System.out.println("Enter exp:-");
             String str=sc.next();
             boolean res=checkparen(str);
             if(res){
-                System.out.println("true");
+                System.out.println("Balanced");
             }
             else{
-                System.out.println("false");
+                System.out.println("Unbalanced");
             }
-            i++;
+       
         }
     }
-}
+
