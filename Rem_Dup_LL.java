@@ -35,7 +35,7 @@ public class Rem_Dup_LL {
  }
  
  public static void removeDup(Rem_Dup_LL li)
- { int count=0;
+ {
 	 Node temp=li.head;
 	 while(temp!=null)
 	 {
@@ -45,7 +45,7 @@ public class Rem_Dup_LL {
 		 {
 			 if(temp.data==temp1.data)
 			 {
-				 count++;
+			
 				 temp2.next=temp1.next;
 			 }
 			 else
