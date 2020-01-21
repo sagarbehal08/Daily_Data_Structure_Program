@@ -3,33 +3,26 @@ package Assignment;
 import java.util.Scanner;
 
 public class RemoveAdjacent {
-	static String nstr="";
+	//static String nstr="";
 	public static void main(String args[]) {
 		Scanner o = new Scanner(System.in);
 		String str = o.next();
-		remove(str, 0, str.length() - 1);
-		System.out.println(nstr);
+		String str1=remove(str);
+		System.out.println(str1);
 	}
-
-public static void remove(String str,int si,int ei)
-{
-        if(si>=ei)
-        {
-             nstr+=str.charAt(si);
-        	return;
-        }
-		char ch=str.charAt(si);
-		char nch=str.charAt(si+1);
-		if(ch==nch)
-		{
-		 remove(str,si+2,ei);
-			
+	public static String remove(String str) {
+		if(str.length()<=1) {
+			return str;
 		}
-		else
-		{
-			nstr+=ch;
-		   remove(str,si+1,ei);
+		if(str.charAt(0)==str.charAt(1)) {
+			int j=0;
+			while(j<str.length()-1 && str.charAt(0)==str.charAt(j+1)) {
+				j++;
+			}
+			return remove(str.substring(j+1));
 		}
-
-}
+		else {
+			return str.charAt(0)+remove(str.substring(1));
+		}
+	}
 }
