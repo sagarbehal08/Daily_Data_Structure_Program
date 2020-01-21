@@ -6,9 +6,12 @@ public class RemoveAdjacent {
 	//static String nstr="";
 	public static void main(String args[]) {
 		Scanner o = new Scanner(System.in);
+		int t=o.nextInt();
+		for(int i=0;i<t;i++) {
 		String str = o.next();
 		String str1=remove(str);
 		System.out.println(str1);
+		}
 	}
 	public static String remove(String str) {
 		if(str.length()<=1) {
