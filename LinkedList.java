@@ -105,7 +105,10 @@ public class LinkedList {
 	   li.addLast(43);
 	   li.addLast(43);
 	   li.addLast(60);
+	   System.out.println("Reverse => ");
 //	   li.reverseData();
+	   li.display();
+	   System.out.println("Remove Dupliacte => ");
 	   li.RemoveDuplicate();
 	   li.display();
 
