@@ -73,15 +73,40 @@ public class LinkedList {
 		System.out.println(".");
 		System.out.println("---------------------");
 	}
+	
+	public void RemoveDuplicate()
+	{
+		removeDuplicate(this.head);
+	}
+	
+	private void removeDuplicate(Node temp)
+	{
+		if(temp==null || temp.next==null)
+		{
+			return;
+		}
+		if(temp.data == temp.next.data)
+		{ 
+			
+			temp.next=temp.next.next;
+			removeDuplicate(temp);
+		}
+		removeDuplicate(temp.next);
+	}
+	
 
 	public static void main(String[] args) throws Exception {
 	   LinkedList li=new LinkedList();
 //	   Scanner o=new Scanner(System.in);
-	   li.addLast(1);
-	   li.addLast(2);
-	   li.addLast(3);
-	   li.addLast(4);
-	   li.reverseData();
+	   li.addLast(11);
+	   li.addLast(11);
+	   li.addLast(11);
+	   li.addLast(21);
+	   li.addLast(43);
+	   li.addLast(43);
+	   li.addLast(60);
+//	   li.reverseData();
+	   li.RemoveDuplicate();
 	   li.display();
 
 	}
