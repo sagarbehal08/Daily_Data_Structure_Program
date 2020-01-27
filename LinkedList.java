@@ -94,24 +94,57 @@ public class LinkedList {
 		removeDuplicate(temp.next);
 	}
 	
+	public void isPalindrom() throws Exception
+	{
+		isPalindrom(this.head);
+	}
+	private void isPalindrom(Node root) throws Exception
+	{
+		int left=0;
+		int right=this.size-1;
+		int count=0;
+		while(left<right)
+		{
+			Node ln=getNodeAt(left);
+			Node rn=getNodeAt(right);
+			if(ln.data!=rn.data)
+			{
+				count=0;
+				break;
+			}
+			left++;
+			right--;
+			count++;
+		}
+		if(count==0)
+		{
+			System.out.println("Not a Palindrom");
+		}
+		else
+		{
+			System.out.println("Palindrom");
+		}
+	}
+	
 
 	public static void main(String[] args) throws Exception {
 	   LinkedList li=new LinkedList();
-//	   Scanner o=new Scanner(System.in);
-	   li.addLast(11);
-	   li.addLast(11);
-	   li.addLast(11);
-	   li.addLast(21);
-	   li.addLast(43);
-	   li.addLast(43);
-	   li.addLast(60);
+	  // Scanner o=new Scanner(System.in);
+	   li.addLast(1);
+	   li.addLast(2);
+	   li.addLast(1);
+//	   li.addLast(21);
+//	   li.addLast(43);
+//	   li.addLast(43);
+//	   li.addLast(60);
+//	   li.display();
 	   System.out.println("Reverse => ");
-//	   li.reverseData();
+     li.reverseData();
 	   li.display();
-	   System.out.println("Remove Dupliacte => ");
-	   li.RemoveDuplicate();
-	   li.display();
-
+//	   System.out.println("Remove Dupliacte => ");
+//	   li.RemoveDuplicate();
+//	   li.display();
+	   li.isPalindrom();
 	}
 
 }
