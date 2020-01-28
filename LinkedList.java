@@ -125,6 +125,47 @@ public class LinkedList {
 			System.out.println("Palindrom");
 		}
 	}
+	public void reverseByIndex(int index)
+	{
+		
+		this.head=reverseByIndex(this.head,index);
+	}
+	private Node reverseByIndex(Node head,int k)
+	{
+		 Node current = head; 
+	       Node next = null; 
+	       Node prev = null; 
+	         
+	       int count = 0; 
+	       while (count < k && current != null)  
+	       { 
+	           next = current.next; 
+	           current.next = prev; 
+	           prev = current; 
+	           current = next; 
+	           count++; 
+	       } 
+	  
+	       if (next != null)  
+	          head.next = reverseByIndex(next, k); 
+	       
+	       return prev; 
+	}
+	private void reverseIndex(int index) throws Exception
+	{
+		int left=0;
+		int right=index-1;
+		while(left<right)
+		{
+			Node ln=getNodeAt(left);
+			Node rn=getNodeAt(right);
+			int temp = ln.data;
+			ln.data = rn.data;
+			rn.data = temp;
+			left++;
+			right--;
+		}
+	}
 	
 
 	public static void main(String[] args) throws Exception {
@@ -132,19 +173,24 @@ public class LinkedList {
 	  // Scanner o=new Scanner(System.in);
 	   li.addLast(1);
 	   li.addLast(2);
-	   li.addLast(1);
-//	   li.addLast(21);
-//	   li.addLast(43);
-//	   li.addLast(43);
-//	   li.addLast(60);
+	   li.addLast(2);
+	   li.addLast(4);
+	   li.addLast(5);
+	   li.addLast(6);
+	   li.addLast(7);
+	   li.addLast(8);
+	   li.addLast(9);
+	   li.addLast(10);
 //	   li.display();
-	   System.out.println("Reverse => ");
-     li.reverseData();
-	   li.display();
+//	   System.out.println("Reverse => ");
+//     li.reverseData();
+//	   li.display();
 //	   System.out.println("Remove Dupliacte => ");
 //	   li.RemoveDuplicate();
 //	   li.display();
 	   li.isPalindrom();
+	   li.reverseByIndex(4);
+	   li.display();
 	}
 
 }
