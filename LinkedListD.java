@@ -53,8 +53,9 @@ public class LinkedListD {
 	{
 		Node node=getNodeAt(ni-1);
 		this.tail.next=node;
+		System.out.println(detectLoop());
 	}
-	public String detectLoop()
+	private String detectLoop()
 	{
 		Node slow=this.head;
 		Node fast=this.head;
@@ -89,7 +90,6 @@ public class LinkedListD {
 			System.out.print("Output=>");
 			if(pos>0) {
 			li.makeCircular(pos);
-			System.out.println(li.detectLoop());
 			}
 			else
 			{
