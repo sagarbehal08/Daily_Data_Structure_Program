@@ -189,19 +189,45 @@ public class LinkedList {
 	     this.head=KthNode.next;
 	     KthNode.next=null;
 	     this.tail=KthNode;
+	     System.out.println("HEAD =>"+this.head.data);
+	     System.out.println("tail =>"+this.tail.data);
 	     
 	}
+	public void exchange()
+	{
+		int j=0;
+		Node temp=this.head;
+//		int k=0;
+//		if(this.size%2==0)
+//		{
+//			k=this.size/2;
+//		}
+//		else
+//		{
+//			k=(this.size-1)/2;
+//		}
+		while( temp!=null && temp.next!=null)
+		{
+			int t=temp.data;
+			temp.data=temp.next.data;
+			temp.next.data=t;
+			
+			temp=temp.next.next;
+//			j++;
+		}
+	}
+	
 	
 
 	public static void main(String[] args) throws Exception {
 	   LinkedList li=new LinkedList();
 	  // Scanner o=new Scanner(System.in);
 	   li.addLast(10);
-	   li.addLast(20);
-	   li.addLast(30);
-	   li.addLast(40);
-	   li.addLast(50);
-	   li.addLast(60);
+//	   li.addLast(20);
+//	   li.addLast(30);
+//	   li.addLast(40);
+//	   li.addLast(50);
+//	   li.addLast(60);
 //	   li.addLast(70);
 //	   li.addLast(80);
 //	   li.addLast(9);
@@ -217,7 +243,8 @@ public class LinkedList {
 //	   li.reverseByIndex(4);
 //	   li.display();
 	   li.display();
-	   li.rotate(12);
+//	   li.rotate(4);
+	   li.exchange();
 	   li.display();
 	}
 
